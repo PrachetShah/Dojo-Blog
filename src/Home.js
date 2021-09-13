@@ -2,18 +2,19 @@ import { useState } from "react";
 
 
 const Home = () => {
-    // let name="Prachet";
-    const [name, setName] = useState('Prachet')
-
-    const handleClick = () => {
-        setName('Kevin')
-    }
-    
+    const [blogs, setBlogs] = useState([
+        { title: 'My New Website', body: "Lorem ipsum, dolor sit amet consectetur adipisicing elit", author: "Prachet", id:1 },
+        { title: 'My New LEGO Model', body: "Lorem ipsum, dolor sit amet consectetur adipisicing elit", author: "Kevin", id:2 },
+        { title: 'My New Cooking Video', body: "Lorem ipsum, dolor sit amet consectetur adipisicing elit", author: "Bhoomi", id:3 },
+    ]);
     return ( 
         <div className="home">
-            <h2>Homepage</h2>
-            <p>{name}</p>
-            <button onClick={ handleClick }>Click Me</button>
+            {blogs.map((blog) => (
+                <div className="blog-preview" key={blog.id}>
+                    <h2>{ blog.title }</h2>
+                    <p>{ blog.author }</p>
+                </div>
+            ))}
             {/* Create Anonymous Func so we can pass in values and fucntion is not called whenevr site is loaded */}
         </div>
     );
