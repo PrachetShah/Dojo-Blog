@@ -1,40 +1,18 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import BlogList from "./BlogList";
+import useFetch from "./useFetch";
 
 const Home = () => {
-  const [blogs, setBlogs] = useState(null);
-  const [isPending, setIsPending] = useState(true);
-  const[error, setError] = useState(null);
+  
+  //data:blogs ':' here means we can call it data as well as blogs here
+  const {data:blogs, isPending, error} = useFetch('http://localhost:8000/blogs')
 
-  // npx json-server --watch data/db.json --port 8000 to run the fetch request database
-  useEffect(() => {
-    setTimeout(() => {
-      fetch('http://localhost:8000/blogs')
-        .then(res => {
-            console.log(res)
-            if(!res.ok){
-                throw Error('Could not fetch the data for that resource');
-            }
-            return res.json();
-        })
-        .then(data => {
-            setBlogs(data);
-            setIsPending(false);
-            setError(null);
-        })
-        .catch(err => {
-            setError(err.message);
-            setIsPending(false);
-        })
-    }, 1000);
-  }, [])
-
-    // //Now it will run again only when name changes.
-    // useEffect(() => {
-    //     console.log('Use Effect Executed');
-    //     console.log(name);
-    // }, [name]);
-    //Now it will run again only when name changes.
+  // //Now it will run again only when name changes.
+  // useEffect(() => {
+  //     console.log('Use Effect Executed');
+  //     console.log(name);
+  // }, [name]);
+  //Now it will run again only when name changes.
 
   return (
     <div className="home">
