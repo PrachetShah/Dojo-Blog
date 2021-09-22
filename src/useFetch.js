@@ -5,6 +5,7 @@ const useFetch = (url) => {
   const [isPending, setIsPending] = useState(true);
   const [error, setError] = useState(null);
 
+  //Custom Hook
   useEffect(() => {
     const abortCont = new AbortController();
 
