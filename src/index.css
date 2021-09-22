@@ -101,3 +101,8 @@
   border-radius: 8px;
   cursor: pointer;
 }
+
+/* Not Found Page */
+.not-found h2, p {
+  padding-bottom: 2%;
+}
