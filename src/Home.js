@@ -5,6 +5,7 @@ import useFetch from "./useFetch";
 const Home = () => {
   
   //data:blogs ':' here means we can call it data as well as blogs here
+  //this is run on json server locally
   const {data:blogs, isPending, error} = useFetch('http://localhost:8000/blogs')
 
   // //Now it will run again only when name changes.
